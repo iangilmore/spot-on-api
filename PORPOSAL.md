@@ -11,7 +11,7 @@ This is the backend of the web-based game Spot On. It's a playful daily* quiz ga
 ## User Stories ([Live on Notion](https://humdrum-knave-a14.notion.site/4ae18d5247174af199ba5a2dae792440?v=da01d63aca8b4db1ab1b63a6f248d456&pvs=4))
 
 
-#### Entity Relationship Diagram ([Live on Whimsical](https://whimsical.com/spot-on-erd-Fj7kn8JeNRQo8oD3vmeE2k@or4CdLRbgroRsU7pEeJUn1LKAyuKjkPvV6Cr97Kai))
+## Entity Relationship Diagram ([Live on Whimsical](https://whimsical.com/spot-on-erd-Fj7kn8JeNRQo8oD3vmeE2k@or4CdLRbgroRsU7pEeJUn1LKAyuKjkPvV6Cr97Kai))
 
 
 #### Timeline
