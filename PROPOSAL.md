@@ -2,7 +2,7 @@
 
 ## Project Description 
 
-This is the backend of the web-based game Spot On. It's a playful daily* quiz game where players test both their visual knowledge and quick decision making by swiping a photo toward the (hopefully) correct of two words. Results display accuracy and overall speed. There are three difficulty levels. Adding a backend to the existing frontend will allow for authenticating users and allowing them to view their puzzle history. In the future I'd like also allow users to connect with their friends to take part in private leaderboards.
+This is the backend of the web-based game Spot On. It's a playful daily* quiz game where players test both their visual knowledge and quick decision making by swiping a photo toward the (hopefully) correct of two words. Results display accuracy and overall speed. There are three difficulty levels. Adding a backend to the existing frontend will allow for authenticating users and allowing them to view their puzzle history. In the future I'd like also allow users to connect with their friends and compare stats in private leaderboards.
 
 <sub>*conceptually</sub>
 
