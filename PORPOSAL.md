@@ -6,20 +6,13 @@ This is the backend of the web-based game Spot On. It's a playful daily* quiz ga
 
 <sub>*conceptually</sub>
 
-## Wireframes
+## Wireframes ([Live on Whimsical](https://whimsical.com/spot-on-crud-wireframes-Mfi8Y7SBUEq2hcP4Mqac1p@8ADn3nfZACaEfsoKVWRAQaE1wKwfmPmaaLrk))
 
-![image](https://github.com/iangilmore/spot-on/assets/6451468/0db344b1-0d83-4354-8893-3051be4a58b7)
+## User Stories ([Live on Notion](https://humdrum-knave-a14.notion.site/4ae18d5247174af199ba5a2dae792440?v=da01d63aca8b4db1ab1b63a6f248d456&pvs=4))
 
-## User Stories
 
-<iframe src="https://getnotionembed.com/embed/a0a18538-c6fe-4c34-a9d1-c10644f04972?mode=Light" style="width: 100%; height: calc(-296px + 100vh);"></iframe>
+#### Entity Relationship Diagram ([Live on Whimsical](https://whimsical.com/spot-on-erd-Fj7kn8JeNRQo8oD3vmeE2k@or4CdLRbgroRsU7pEeJUn1LKAyuKjkPvV6Cr97Kai))
 
-#### Entity Relationship Diagram
-
-<iframe style="border:none" width="100%" height="560vw" src="https://whimsical.com/embed/Fj7kn8JeNRQo8oD3vmeE2k@or4CdLRbgroPJ6n46Eq2uFtvrZ8aXQHwTtWFBBm9L"></iframe>
-
-#### Project Planning Notionboard
-https://humdrum-knave-a14.notion.site/Spot-On-Backend-c16b1f1e06e14a6ea8671178728a3f32?pvs=4
 
 #### Timeline
 | Day        |   | Goals                                                                 | Blockers           | Notes/ Thoughts           |
@@ -29,7 +22,7 @@ https://humdrum-knave-a14.notion.site/Spot-On-Backend-c16b1f1e06e14a6ea867117872
 | Tuesday    |   | Add Auth, start on other routes, models, controllers                  |                    |                           |
 | Wedenesday |   | add main POST & GET, PUT, DELETE routes, models, controllers          |                    |                           |
 | Thursday   |   | add additional routes, models, controllers, start on frontend         |                    |                           |
-| Friday     |   | Connect frontend with routes                                          |                    |                           |
+| Friday     |   | Connect frontend with routes, seed "previous puzzles"                 |                    |                           |
 | Saturday   |   | Work on stretch goals                                                 |                    |                           |
 | Sunday     |   | Work on stretch goals                                                 |                    |                           |
 | Monday     |   | Presentation Day!                                                     |                    |                           |
