@@ -7,7 +7,7 @@ This is the backend of the web-based game Spot On. It's a playful daily* quiz ga
 <sub>*conceptually</sub>
 
 ## Wireframes ([Live on Whimsical](https://whimsical.com/spot-on-crud-wireframes-Mfi8Y7SBUEq2hcP4Mqac1p@8ADn3nfZACaEfsoKVWRAQaE1wKwfmPmaaLrk))
-![image](https://github.com/iangilmore/spot-on-backend/assets/6451468/79325d19-6efe-497a-a0ba-a5d012e014b9)
+![image](https://github.com/iangilmore/spot-on-backend/assets/6451468/dcaf3602-7206-4f1c-82f4-f369f3460f7e)
 
 
 ## User Stories ([Live on Notion](https://humdrum-knave-a14.notion.site/4ae18d5247174af199ba5a2dae792440?v=da01d63aca8b4db1ab1b63a6f248d456&pvs=4))
