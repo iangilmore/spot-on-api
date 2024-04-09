@@ -7,14 +7,14 @@ This is the backend of the web-based game Spot On. It's a playful daily* quiz ga
 <sub>*conceptually</sub>
 
 ## Wireframes ([Live on Whimsical](https://whimsical.com/spot-on-crud-wireframes-Mfi8Y7SBUEq2hcP4Mqac1p@8ADn3nfZACaEfsoKVWRAQaE1wKwfmPmaaLrk))
-![image](https://github.com/iangilmore/spot-on-backend/assets/6451468/532cb638-d81f-4287-8bb0-76ee283be971)
+![image](https://github.com/iangilmore/spot-on-backend/assets/6451468/26d68dd5-edfb-4325-a8cb-ebdb8a8cf1ed)
 
 
 ## User Stories ([Live on Notion](https://humdrum-knave-a14.notion.site/4ae18d5247174af199ba5a2dae792440?v=da01d63aca8b4db1ab1b63a6f248d456&pvs=4))
 ![image](https://github.com/iangilmore/spot-on-backend/assets/6451468/366bd54f-2448-4ae6-a943-ab7f7e21efdd)
 
 ## Entity Relationship Diagram ([Live on Whimsical](https://whimsical.com/spot-on-erd-Fj7kn8JeNRQo8oD3vmeE2k@or4CdLRbgroRsU7pEeJUn1LKAyuKjkPvV6Cr97Kai))
-![image](https://github.com/iangilmore/spot-on-backend/assets/6451468/dabecaf2-310b-405c-a901-ee6b8abe610d)
+![image](https://github.com/iangilmore/spot-on-backend/assets/6451468/532cb638-d81f-4287-8bb0-76ee283be971)
 
 
 #### Timeline
