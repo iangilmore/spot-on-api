@@ -20,7 +20,7 @@ async () => {
 }
 
 function allTheThings() {
-  app.listen(process.env.PORT || 443, () => {
+  app.listen(process.env.PORT, () => {
     console.log(`Express server is running`);
   })
   
