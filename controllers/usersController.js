@@ -10,12 +10,13 @@ const clientId = process.env.WORKOS_CLIENT_ID
 //   Buffer.from(process.env.JWT_SECRET_KEY, 'base64'),
 // )
 
-export const signIn = (req, res) => {
+export const auth = (req, res) => {
   const authorizationUrl = workos.userManagement.getAuthorizationUrl({
     provider: 'authkit',
     redirectUri: `${process.env.ENDPOINT_BACKEND}user/callback`,
     clientId,
-    //state (optional parameter to encode arbitrary info to help restore application state between redirects)
+    screenHint: 'sign-in',
+    //state: Could we take advantage of this to match unauthenticated user progress with a user?
   })
   res.redirect(authorizationUrl)
 }
@@ -45,19 +46,30 @@ export const handleCallback = async (req, res) => {
       const newUser = await User.create(userData)
     }
   } catch (error) {
-    console.log(`error creating user: ${error}`);
+    console.error(`error creating user: ${error}`);
   }
   // Redirect the user to the homepage
   res.redirect(process.env.ENDPOINT_FRONTEND);
 }
 
-export const getUser = async (req, res) => {
-  const session = await getSessionFromCookie(req.cookies)
-  console.log(`User ${session.user.firstName} is logged in`)
+export const logOut = async (req, res) => {
   try {
+    res.clearCookie('wos-session')
+    res.json({ message: 'user was logged out' })
+    res.redirect('/')
+  } catch (error) {
+    console.error(`error logging user out: ${error}`)
+  }
+}
+
+export const getUser = async (req, res) => {
+  try {
+    const session = await getSessionFromCookie(req.cookies)
+    console.log(`User ${session.user.firstName} is logged in`)
     const currentUser = await User.findOne({ id: session.user.id})
     res.json(currentUser)  
   } catch (error) {
-    
+    console.error(`User is not logged in or no user found: ${error}`)
+    res.redirect(process.env.ENDPOINT_FRONTEND)
   }
 }

@@ -5,10 +5,7 @@ const userSchema = mongoose.Schema({
   email: {type: String, required: true},
   firstName: String,
   lastName: String,
-  emailVerified:  {type: Boolean, required: true},
-  profilePictureUrl: String,
-  createdAt: {type: String, required: true},
-  updatedAt: {type: String, required: true}
+  profilePictureUrl: String
 })
 
 const User = mongoose.model('User', userSchema)

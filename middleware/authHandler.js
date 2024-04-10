@@ -17,7 +17,7 @@ export async function withAuth(req, res, next) {
 
   // If no session, redirect the user to the login page
   if (!session) {
-    return res.redirect('/auth')
+    return res.redirect(process.env.ENDPOINT_FRONTEND)
   }
 
   const hasValidSession = await verifyAccessToken(session.accessToken)
@@ -61,7 +61,7 @@ export async function withAuth(req, res, next) {
     // Failed to refresh access token, redirect user to login page
     // after deleting the cookie
     res.clearCookie('wos-session')
-    res.redirect('/auth')
+    res.redirect(process.env.ENDPOINT_FRONTEND)
   }
 }
 

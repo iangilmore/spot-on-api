@@ -21,3 +21,6 @@ app.use(cors())
 app.use(cookieParser())
 
 app.use('/user', usersRouter)
+app.use('/', async (req, res) => {
+  res.send('<h1>Spot On API</h1>')
+})
