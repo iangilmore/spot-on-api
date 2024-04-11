@@ -1,6 +1,7 @@
 import { WorkOS } from '@workos-inc/node'
 import { createRemoteJWKSet, jwtVerify } from 'jose'
 import { sealData, unsealData } from 'iron-session'
+import User from '../models/usersModel.js'
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY)
 const clientId = process.env.WORKOS_CLIENT_ID
@@ -17,13 +18,14 @@ export async function withAuth(req, res, next) {
 
   // If no session, redirect the user to the login page
   if (!session) {
-    return res.redirect(process.env.ENDPOINT_FRONTEND)
+    return res.redirect(process.env.ENDPOINT_BACKEND + 'user/auth')
   }
 
   const hasValidSession = await verifyAccessToken(session.accessToken)
 
   // If the session is valid, move on to the next function
   if (hasValidSession) {
+    req.userId = session.userId
     return next();
   }
 
@@ -35,13 +37,20 @@ export async function withAuth(req, res, next) {
         clientId,
         refreshToken: session.refreshToken,
       })
-
+    // Check if user exists, if not, respond with an error
+    const currentUser = await User.findOne({ id: user.id})
+    if (!currentUser) {
+      res.status(409).json({ message: `error finding user: ${error}`})
+      }
+    // Define the user's mongoDB ObjectId as a variable to add the session for later use
+    const userId = currentUser._id
     // Refresh tokens are single use, so update the session with the
     // new access and refresh tokens
     const encryptedSession = await sealData(
       {
         accessToken,
         refreshToken,
+        userId,
         user: session.user,
         impersonator: session.impersonator,
       },
@@ -56,7 +65,7 @@ export async function withAuth(req, res, next) {
       sameSite: 'lax',
     })
 
-    return next();
+    return next(userId);
   } catch (error) {
     // Failed to refresh access token, redirect user to login page
     // after deleting the cookie
@@ -67,7 +76,6 @@ export async function withAuth(req, res, next) {
 
 export async function getSessionFromCookie(cookies) {
   const cookie = cookies['wos-session']
-
   if (cookie) {
     return unsealData(cookie, {
       password: process.env.WORKOS_COOKIE_PASSWORD,

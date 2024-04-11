@@ -6,9 +6,6 @@ import { getSessionFromCookie } from '../middleware/authHandler.js'
 
 const workos = new WorkOS(process.env.WORKOS_API_KEY)
 const clientId = process.env.WORKOS_CLIENT_ID
-// const secret = new Uint8Array(
-//   Buffer.from(process.env.JWT_SECRET_KEY, 'base64'),
-// )
 
 export const auth = (req, res) => {
   const authorizationUrl = workos.userManagement.getAuthorizationUrl({
@@ -28,8 +25,19 @@ export const handleCallback = async (req, res) => {
       code,
       clientId,
     })
+  // Check if user exists or is new, if new, create user
+  const currentUser = await User.findOne({ id: user.id})
+  if (!currentUser) {
+    const userData = user
+    const newUser = await User.create(userData)
+    currentUser = newUser
+  }
+
+  // Define the user's mongoDB ObjectId as a variable to add the session for later use
+  const userId = currentUser._id
+  // Encrypt the session data
   const encryptedSession = await sealData(
-    { accessToken, refreshToken, user, impersonator },
+    { accessToken, refreshToken, userId, user, impersonator },
     { password: process.env.WORKOS_COOKIE_PASSWORD },
   )
   res.cookie('wos-session', encryptedSession, {
@@ -38,38 +46,50 @@ export const handleCallback = async (req, res) => {
     secure: true,
     sameSite: 'lax',
   })
-
-  try {
-    const currentUser = await User.findOne({ id: user.id})
-    if (!currentUser) {
-      const userData = user
-      const newUser = await User.create(userData)
-    }
-  } catch (error) {
-    console.error(`error creating user: ${error}`);
-  }
   // Redirect the user to the homepage
-  res.redirect(process.env.ENDPOINT_FRONTEND);
+  // TODO: Redirect to the page the user to a logged in page
+  res.redirect(process.env.ENDPOINT_FRONTEND)
 }
 
 export const logOut = async (req, res) => {
   try {
     res.clearCookie('wos-session')
     res.json({ message: 'user was logged out' })
-    res.redirect('/')
+    res.redirect(process.env.ENDPOINT_FRONTEND)
   } catch (error) {
-    console.error(`error logging user out: ${error}`)
+    res.status(409).json({ message: `error logging user out: ${error}`})
   }
 }
 
 export const getUser = async (req, res) => {
   try {
     const session = await getSessionFromCookie(req.cookies)
-    console.log(`User ${session.user.firstName} is logged in`)
-    const currentUser = await User.findOne({ id: session.user.id})
+    const userId = session.userId
+    const currentUser = await User.findById(userId)
     res.json(currentUser)  
   } catch (error) {
-    console.error(`User is not logged in or no user found: ${error}`)
+    res.status(409).json({ message: `User is not logged in or no user found: ${error}`})
     res.redirect(process.env.ENDPOINT_FRONTEND)
+  }
+}
+
+export const updateUser = async (req, res) => {
+  try {
+    const userData = req.body
+    const updatedUser = await User.findOneAndUpdate( req.userId, userData, { new: true })
+    res.json(updatedUser)
+  } catch (error) {
+    res.status(409).json({ message: `error updating user: ${error}`})
+  }
+}
+
+export const deleteUser = async (req, res) => {
+  try {
+    await User.findByIdAndDelete(req.userId)
+    res.json({ message: 'User deleted successfully' })
+    logOut()
+  } catch (error) {
+    res.status(409).json({ message: `error deleting user: ${error}`})
+    
   }
 }
