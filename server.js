@@ -11,14 +11,11 @@ import usersRouter from './routes/usersRouter.js'
 
 let app
 async function localhostOrNot() {
-  console.log('in async function');
   if (process.env.USE_HTTPS_LOCALHOST) {
-    console.log('found USE_HTTPS_LOCALHOST env, running https-localhost');
     let httpsLocalHost = await import('https-localhost')
     app = httpsLocalHost.default()
     allTheThings()
   } else {
-    console.log('no USE_HTTPS_LOCALHOST env, running express');
     app = express()
     allTheThings()
   }
