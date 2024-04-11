@@ -3,6 +3,7 @@ import './config/database.js'
 import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
+import mongoose from 'mongoose'
 
 import usersRouter from './routes/usersRouter.js'
 // import puzzlesRouter from './routes/puzzlesRouter.js'
@@ -24,8 +25,9 @@ async function localhostOrNot() {
 localhostOrNot()
 
 function allTheThings() {
+  mongoose.set('debug', process.env.MONGOOSE_DEBUG)
   app.listen(process.env.PORT, () => {
-    console.log(`Express server is running`);
+    console.log(`Express server is running`)
   })
   
   app.use(express.json())
