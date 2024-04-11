@@ -6,9 +6,9 @@ import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose'
 
 import usersRouter from './routes/usersRouter.js'
-// import puzzlesRouter from './routes/puzzlesRouter.js'
-// import puzzleCardsRouter from './routes/puzzleCardsRouter.js'
-// import resultsRouter from './routes/resultsRouter.js'
+import puzzlesRouter from './routes/puzzlesRouter.js'
+import puzzleCardsRouter from './routes/puzzleCardsRouter.js'
+import resultsRouter from './routes/resultsRouter.js'
 
 let app
 async function localhostOrNot() {
@@ -35,9 +35,9 @@ function allTheThings() {
   app.use(cookieParser())
   
   app.use('/user', usersRouter)
-  // app.use('/puzzles', puzzlesRouter)
-  // app.use('/puzzleCards', puzzleCardsRouter)
-  // app.use('/results', resultsRouter)
+  app.use('/puzzles', puzzlesRouter)
+  app.use('/puzzleCards', puzzleCardsRouter)
+  app.use('/results', resultsRouter)
   app.use('/', async (req, res) => {
     res.send('<h1>Spot On API</h1>')
   })  
