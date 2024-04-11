@@ -4,6 +4,8 @@ import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose'
+import swaggerUi from 'swagger-ui-express'
+import swaggerDocument from './docs/swagger-output.json' assert {type: 'json'}
 
 import usersRouter from './routes/usersRouter.js'
 import puzzlesRouter from './routes/puzzlesRouter.js'
@@ -33,6 +35,7 @@ function allTheThings() {
   app.use(express.json())
   app.use(cors())
   app.use(cookieParser())
+  app.use('/docs/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
   
   app.use('/user', usersRouter)
   app.use('/puzzles', puzzlesRouter)
