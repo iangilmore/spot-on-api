@@ -11,7 +11,7 @@ import usersRouter from './routes/usersRouter.js'
 
 let app
 async () => {
-  if (process.env.USE_HTTPS_LOCALHOST === 'true') {
+  if (process.env.USE_HTTPS_LOCALHOST) {
     let httpsLocalHost = await import('https-localhost')
     app = httpsLocalHost.default()
     allTheThings()
