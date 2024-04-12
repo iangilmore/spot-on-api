@@ -41,13 +41,13 @@ export const handleCallback = async (req, res) => {
     { password: process.env.WORKOS_COOKIE_PASSWORD },
   )
   res.cookie('wos-session', encryptedSession, {
-    domain: '.webdev.ninja',
-    path: '/',
-    httpOnly: true,
-    secure: true,
-    // sameSite: 'lax',
-    // sameSite: 'none',
-    sameSite: 'strict',
+      // domain: '.webdev.ninja',
+      path: '/',
+      httpOnly: true,
+      secure: true,
+      sameSite: 'lax',
+      // sameSite: 'none',
+      // sameSite: 'strict',
   })
   // Redirect the user to the homepage
   // TODO: Redirect the user to a logged in page

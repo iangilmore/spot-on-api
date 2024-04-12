@@ -60,13 +60,13 @@ export async function withAuth(req, res, next) {
 
     // Update the cookie
     res.cookie('wos-session', encryptedSession, {
-      domain: '.webdev.ninja',
+      // domain: '.webdev.ninja',
       path: '/',
       httpOnly: true,
       secure: true,
-    // sameSite: 'lax',
-    // sameSite: 'none',
-    sameSite: 'strict',
+      sameSite: 'lax',
+      // sameSite: 'none',
+      // sameSite: 'strict',
     })
 
     return next(userId);

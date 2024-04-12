@@ -33,10 +33,11 @@ function allTheThings() {
   })
   
   app.use(express.json())
-  app.use(cors({
-    credentials: true, 
-    origin: 'https://spot-on.webdevstuff.ninja'
-  }))
+  app.use(cors())
+//   app.use(cors({
+//   credentials: true, 
+//   origin: 'https://spot-on.webdevstuff.ninja'
+// }))
   app.use(cookieParser())
 
   app.use('/docs/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
