@@ -60,7 +60,7 @@ export async function withAuth(req, res, next) {
 
     // Update the cookie
     res.cookie('wos-session', encryptedSession, {
-      domain: process.env.DOMAIN_FRONTEND,
+      // domain: process.env.DOMAIN_FRONTEND,
       path: '/',
       httpOnly: true,
       secure: true,
