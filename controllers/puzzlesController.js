@@ -21,8 +21,18 @@ export const getPuzzle = async (req, res) => {
 
 export const createPuzzles = async (req, res) => {
   const puzzleData = req.body
-  if (!puzzleData.createdBy) {
-    puzzleData.createdBy = req.userId
+  // If puzzleCardData is not an array, and createdBy doesn't exist, add createdBy
+  if (!Array.isArray(puzzleData)) {
+    if (!puzzleData.createdBy) {
+      puzzleData.createdBy = req.userId
+    }
+  } else {
+    // Add createdBy to each object in the array
+    puzzleData.forEach(puzzle => {
+      if (!puzzle.createdBy) {
+        puzzle.createdBy = req.userId
+      }
+    })
   }
   try {
     const newPuzzles = await Puzzle.create(puzzleData)
