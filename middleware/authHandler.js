@@ -60,7 +60,7 @@ export async function withAuth(req, res, next) {
 
     // Update the cookie
     res.cookie('wos-session', encryptedSession, {
-      domain: 'webdev.ninja',
+      domain: '.webdev.ninja',
       path: '/',
       httpOnly: true,
       secure: true,
