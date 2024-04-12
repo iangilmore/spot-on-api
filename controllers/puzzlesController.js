@@ -21,6 +21,9 @@ export const getPuzzle = async (req, res) => {
 
 export const createPuzzles = async (req, res) => {
   const puzzleData = req.body
+  if (!puzzleData.createdBy) {
+    puzzleData.createdBy = req.userId
+  }
   try {
     const newPuzzles = await Puzzle.create(puzzleData)
     res.status(201).json(newPuzzles)

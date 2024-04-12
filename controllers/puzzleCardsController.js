@@ -21,6 +21,9 @@ export const getPuzzleCard = async (req, res) => {
 
 export const createPuzzleCards = async (req, res) => {
   const puzzleCardData = req.body
+  if (!puzzleCardData.createdBy) {
+    puzzleCardData.createdBy = req.userId
+  }
   try {
     const newPuzzleCards = await PuzzleCard.create(puzzleCardData)
     res.status(201).json(newPuzzleCards)

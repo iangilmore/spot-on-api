@@ -5,6 +5,7 @@ const puzzleSchema = new mongoose.Schema({
   date: { type: Date, required: true },
   levelValue: { type: Number, required: true, min: 0, max: 2 },
   puzzleCards: { type: [mongoose.Schema.Types.ObjectId], ref: 'PuzzleCard' },
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 })
 
 const Puzzle = mongoose.model("Puzzle", puzzleSchema)

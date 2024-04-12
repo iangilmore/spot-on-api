@@ -13,6 +13,7 @@ const puzzleCardSchema = new mongoose.Schema({
   incorrects: { type: [String], required: true },
   answerHistory: answerHistorySchema,
   active: { type: Boolean, required: true, default: true },
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 })
 
 const PuzzleCard = mongoose.model('PuzzleCard', puzzleCardSchema)
