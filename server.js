@@ -35,7 +35,7 @@ function allTheThings() {
   app.use(express.json())
   app.use(cors({
     credentials: true, 
-    origin: 'https://spot-on-game-ian-gilmore.vercel.app/'
+    origin: 'https://spot-on-game-ian-gilmore.vercel.app'
   }))
   app.use(cookieParser())
 
