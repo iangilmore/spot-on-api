@@ -65,9 +65,7 @@ export const logOut = async (req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    const session = await getSessionFromCookie(req.cookies)
-    const userId = session.userId
-    const currentUser = await User.findById(userId)
+    const currentUser = await User.findById(req.userId)
     res.json(currentUser)  
   } catch (error) {
     res.status(409).json({ message: `User is not logged in or no user found: ${error}`})
