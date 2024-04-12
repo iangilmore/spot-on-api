@@ -35,10 +35,7 @@ function allTheThings() {
   app.use(express.json())
   app.use(cors({
     credentials: true, 
-    origin: [
-      'http://localhost:5500',
-      'https://spot-on-game-ian-gilmore.netlify.app/'
-    ]
+    origin: 'https://spot-on-game-ian-gilmore.netlify.app/'
   }))
   app.use(cookieParser())
 
