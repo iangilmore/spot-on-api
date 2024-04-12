@@ -64,7 +64,8 @@ export async function withAuth(req, res, next) {
       path: '/',
       httpOnly: true,
       secure: true,
-      sameSite: 'lax',
+      // sameSite: 'lax',
+      sameSite: 'none',
     })
 
     return next(userId);

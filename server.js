@@ -46,6 +46,6 @@ function allTheThings() {
   app.use('/puzzleCards', puzzleCardsRouter)
   app.use('/results', resultsRouter)
   app.use('/', async (req, res) => {
-    res.send('<h1>Spot On API</h1>')
+    res.json({'message': 'Welcome to the Spot On API'})
   })  
 }

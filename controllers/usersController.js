@@ -45,7 +45,8 @@ export const handleCallback = async (req, res) => {
     path: '/',
     httpOnly: true,
     secure: true,
-    sameSite: 'lax',
+    // sameSite: 'lax',
+    sameSite: 'none',
   })
   // Redirect the user to the homepage
   // TODO: Redirect the user to a logged in page
