@@ -47,7 +47,7 @@ export const handleCallback = async (req, res) => {
     sameSite: 'lax',
   })
   // Redirect the user to the homepage
-  // TODO: Redirect to the page the user to a logged in page
+  // TODO: Redirect the user to a logged in page
   res.redirect(process.env.ENDPOINT_FRONTEND)
 }
 
@@ -69,7 +69,6 @@ export const getUser = async (req, res) => {
     res.json(currentUser)  
   } catch (error) {
     res.status(409).json({ message: `User is not logged in or no user found: ${error}`})
-    res.redirect(process.env.ENDPOINT_FRONTEND)
   }
 }
 
