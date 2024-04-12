@@ -55,7 +55,7 @@ export const logOut = async (req, res) => {
   try {
     res.clearCookie('wos-session')
     res.json({ message: 'user was logged out' })
-    res.redirect(process.env.ENDPOINT_FRONTEND)
+    res.redirect(process.env.ENDPOINT_FRONTEND + '?status=logged_out')
   } catch (error) {
     res.status(409).json({ message: `error logging user out: ${error}`})
   }

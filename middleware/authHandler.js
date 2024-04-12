@@ -18,7 +18,8 @@ export async function withAuth(req, res, next) {
 
   // If no session, redirect the user to the login page
   if (!session) {
-    return res.redirect(process.env.ENDPOINT_BACKEND + '/user/auth')
+    console.log('No session found, redirecting to login')
+    return res.redirect(process.env.ENDPOINT_BACKEND + '/user/auth?error=no_session')
   }
 
   const hasValidSession = await verifyAccessToken(session.accessToken)
@@ -70,11 +71,12 @@ export async function withAuth(req, res, next) {
     // Failed to refresh access token, redirect user to login page
     // after deleting the cookie
     res.clearCookie('wos-session')
-    res.redirect(process.env.ENDPOINT_FRONTEND)
+    res.redirect(process.env.ENDPOINT_FRONTEND + '?error=refresh_token_failed')
   }
 }
 
 export async function getSessionFromCookie(cookies) {
+  console.log('Attempting to get valid session info from cookie');
   const cookie = cookies['wos-session']
   if (cookie) {
     return unsealData(cookie, {
