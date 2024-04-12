@@ -18,8 +18,8 @@ export async function withAuth(req, res, next) {
 
   // If no session, redirect the user to the login page
   if (!session) {
-    console.log('No session found, redirecting to login')
-    return res.redirect(process.env.ENDPOINT_BACKEND + '/user/auth?error=no_session')
+    console.log('No session found, redirecting to homepage')
+    return res.redirect(process.env.ENDPOINT_BACKEND + '?error=no_session')
   }
 
   const hasValidSession = await verifyAccessToken(session.accessToken)
