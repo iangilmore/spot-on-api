@@ -33,8 +33,15 @@ function allTheThings() {
   })
   
   app.use(express.json())
-  app.use(cors())
+  app.use(cors({
+    credentials: true, 
+    origin: [
+      'http://localhost:5500',
+      'https://spot-on-game-ian-gilmore.netlify.app/'
+    ]
+  }))
   app.use(cookieParser())
+
   app.use('/docs/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
   
   app.use('/user', usersRouter)
