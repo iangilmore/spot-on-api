@@ -60,6 +60,7 @@ export async function withAuth(req, res, next) {
 
     // Update the cookie
     res.cookie('wos-session', encryptedSession, {
+      domain: process.env.DOMAIN_FRONTEND,
       path: '/',
       httpOnly: true,
       secure: true,
@@ -83,6 +84,7 @@ export async function getSessionFromCookie(cookies) {
       password: process.env.WORKOS_COOKIE_PASSWORD,
     })
   }
+  console.log('Cookie and session found');
 }
 
 export async function verifyAccessToken(accessToken) {
@@ -90,7 +92,7 @@ export async function verifyAccessToken(accessToken) {
     await jwtVerify(accessToken, JWKS)
     return true
   } catch (error) {
-    console.warn('Failed to verify session:', error);
+    console.warn('Failed to verify session:' + error);
     return false;
   }
 }
