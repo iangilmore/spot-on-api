@@ -10,10 +10,10 @@ const clientId = process.env.WORKOS_CLIENT_ID
 export const auth = (req, res) => {
   const authorizationUrl = workos.userManagement.getAuthorizationUrl({
     provider: 'authkit',
-    redirectUri: `${process.env.ENDPOINT_BACKEND}user/callback`,
+    redirectUri: (process.env.ENDPOINT_BACKEND + '/user/callback'),
     clientId,
     screenHint: 'sign-in',
-    //state: Could we take advantage of this to match unauthenticated user progress with a user?
+    //state: Could we take advantage of this referencing something in local storage or elsewhere to match unauthenticated user progress with a user?
   })
   res.redirect(authorizationUrl)
 }
