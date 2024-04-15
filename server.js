@@ -44,7 +44,7 @@ function allTheThings() {
   
   app.use('/user', usersRouter)
   app.use('/puzzles', puzzlesRouter)
-  app.use('/puzzleCards', puzzleCardsRouter)
+  app.use('/puzzle-cards', puzzleCardsRouter)
   app.use('/results', resultsRouter)
   app.use('/', async (req, res) => {
     res.json({'message': 'Welcome to the Spot On API'})

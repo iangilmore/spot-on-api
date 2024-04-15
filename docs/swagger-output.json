@@ -11,7 +11,7 @@
       "description": "Local"
     },
     {
-      "url": "https://spot-on-api-61c1dd69af4d.herokuapp.com",
+      "url": "https://api.spot-on.webdevstuff.ninja",
       "description": "Production"
     }
   ],
@@ -102,15 +102,41 @@
     "/puzzles/": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "levelValue",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           },
-          "404": {
-            "description": "Not Found"
+          "204": {
+            "description": "No Content"
           },
           "409": {
             "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -122,6 +148,23 @@
           },
           "409": {
             "description": "Conflict"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "createdBy": {
+                    "example": "any"
+                  },
+                  "forEach(puzzle": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -194,12 +237,31 @@
         }
       }
     },
-    "/puzzleCards/": {
+    "/puzzle-cards/": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "levelValue",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
           },
           "404": {
             "description": "Not Found"
@@ -218,10 +280,27 @@
           "409": {
             "description": "Conflict"
           }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "createdBy": {
+                    "example": "any"
+                  },
+                  "forEach(cardData": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
-    "/puzzleCards/{puzzleCardId}": {
+    "/puzzle-cards/{puzzleCardId}": {
       "get": {
         "description": "",
         "parameters": [

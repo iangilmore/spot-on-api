@@ -9,11 +9,11 @@ const doc = {
   },
   servers: [
     {
-      url: 'https://localhost/',
+      url: 'https://localhost',
       description: 'Local'
     },
     {
-      url: 'https://spot-on-api-61c1dd69af4d.herokuapp.com/',
+      url: 'https://api.spot-on.webdevstuff.ninja',
       description: 'Production'
     },
     // { ... }
