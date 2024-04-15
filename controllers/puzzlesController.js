@@ -1,11 +1,16 @@
 import Puzzle from '../models/puzzlesModel.js'
 
 export const getPuzzles = async (req, res) => {
+  const { date, levelValue, createdBy } = req.query
+  const query = {}
+  if (date) { query.date = date }
+  if (levelValue) { query.levelValue = levelValue }
+  if (createdBy) { query._id = createdBy }
   try {
-    const puzzles = await Puzzle.find().populate('puzzleCards')
+    const puzzles = await Puzzle.find(query).populate('puzzleCards')
     res.status(200).json(puzzles)
   } catch (error) {
-    res.status(404).json({ message: error.message })
+    res.status(500).json({ message: error.message })
   }
 }
 
