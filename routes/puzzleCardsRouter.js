@@ -5,8 +5,8 @@ const router = Router()
 
 import { getPuzzleCards, getPuzzleCard, createPuzzleCards, updatePuzzleCard, deletePuzzleCard } from "../controllers/puzzleCardsController.js"
 
-router.get('/', withAuth, getPuzzleCards)
-router.get('/:puzzleCardId', withAuth, getPuzzleCard)
+router.get('/', getPuzzleCards)
+router.get('/:puzzleCardId', getPuzzleCard)
 router.post('/', withAuth, createPuzzleCards)
 router.patch('/:puzzleCardId', withAuth, updatePuzzleCard)
 router.delete('/:puzzleCardId', withAuth, deletePuzzleCard)
