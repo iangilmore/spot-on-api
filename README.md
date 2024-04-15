@@ -24,18 +24,20 @@ Get a glimpse into the project's planning and development process by exploring o
 - Node.js
 - Express.js
 - Mongoose
-- MongoDB
 
 ## Attributions
 We extend our gratitude to the following external resources that played a crucial role in developing this API:
 
-workOS's AuthKit, cookie-parser, cors, express, iron-session, jose, mongoose, swagger-ui-express, dotenv, https-localhost, nodemon, swagger-autogen
+- Platforms: Heroku, MongoDB, Vercel, AuthKit (by WorkOS)
+- NPM Packages: cookie-parser, cors, express, iron-session, jose, mongoose, swagger-ui-express, dotenv, https-localhost, nodemon, swagger-autogen
 
 ## Next Steps
 
-We're constantly striving to improve the Spot On experience. Here's a peek at some exciting features planned for the future:
+We're constantly striving to improve the Spot On experience. Here's a peek at some exciting features beingconsidered for the future:
+- Supporting players connecting with their friends and compare stats in private leaderboards
+- Supporting players creating their own custom puzzles to share with friends
 
-- We're considering adding a feature for players to connect with their friends and compare stats in private leaderboards
+##
 
 ### Looking for the Frontend Code?
 
