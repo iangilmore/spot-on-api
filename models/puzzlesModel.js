@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
 
 const puzzleSchema = new mongoose.Schema({
-  spotOnId: { type: String, required: true },
   date: {
     type: String,
     required: true,
