@@ -17,7 +17,7 @@ This API serves as the backend engine for the Spot On puzzle application, a plat
 - Live App: Check out the live Spot On app at https://spot-on.webdevstuff.ninja
 
 ## Project Planning
-Get a glimpse into the project's planning and development process by exploring our [Notion board](https://humdrum-knave-a14.notion.site/4ae18d5247174af199ba5a2dae792440?v=da01d63aca8b4db1ab1b63a6f248d456&pvs=4)
+Get a glimpse into the project's planning and development process by exploring our [Notion board](https://humdrum-knave-a14.notion.site/Spot-On-API-c16b1f1e06e14a6ea8671178728a3f32?pvs=4) and our [Entity Relationship Diagram](https://whimsical.com/spot-on-erd-Fj7kn8JeNRQo8oD3vmeE2k@or4CdLRbgroRsU7pEeJUn1LKAyuKjkPvV6Cr97Kai).
 
 ## Technologies Used
 - JavaScript
