@@ -56,7 +56,6 @@ export const handleCallback = async (req, res) => {
 export const logOut = async (req, res) => {
   try {
     res.clearCookie('wos-session')
-    res.json({ message: 'user was logged out' })
     res.redirect(process.env.ENDPOINT_FRONTEND + '?logged_in=false')
   } catch (error) {
     res.status(409).json({ message: `error logging user out: ${error}`})
