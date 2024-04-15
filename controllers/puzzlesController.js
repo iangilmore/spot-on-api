@@ -8,6 +8,9 @@ export const getPuzzles = async (req, res) => {
   if (createdBy) { query._id = createdBy }
   try {
     const puzzles = await Puzzle.find(query).populate('puzzleCards')
+    if (!puzzles.length) {
+      return res.status(204).json({ message: "No matching puzzles found" })
+    }
     res.status(200).json(puzzles)
   } catch (error) {
     res.status(500).json({ message: error.message })
