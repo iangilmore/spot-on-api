@@ -12,7 +12,7 @@ This API serves as the backend engine for the Spot On puzzle application, a plat
 
 ## Getting Started
 
-- API Endpoint: https://api.spot-on.webdevstuff.ninja/
+- API Endpoint: https://api.spot-on.webdevstuff.ninja
 - API Documentation: https://api.spot-on.webdevstuff.ninja/docs/api
 - Live App: Check out the live Spot On app at https://spot-on.webdevstuff.ninja
 
