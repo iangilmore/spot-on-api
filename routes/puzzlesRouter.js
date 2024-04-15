@@ -1,5 +1,5 @@
-import { Router } from "express"
-import { withAuth } from "../middleware/authHandler.js"
+import { Router } from 'express'
+import { withAuth } from '../middleware/authHandler.js'
 
 const router = Router()
 

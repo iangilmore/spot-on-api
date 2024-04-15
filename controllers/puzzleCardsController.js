@@ -1,8 +1,15 @@
 import PuzzleCard from '../models/puzzleCardsModel.js'
 
 export const getPuzzleCards = async (req, res) => {
+  const { levelValue, createdBy } = req.query
+  const query = {}
+  if (levelValue) { query.levelValue = levelValue }
+  if (createdBy) { query._id = createdBy }
   try {
     const puzzleCards = await PuzzleCard.find()
+    if (!puzzleCards.length) {
+      return res.status(204).json({ message: "No matching puzzle cards found" })
+    }
     res.status(200).json(puzzleCards)
   } catch (error) {
     res.status(404).json({ message: error.message })

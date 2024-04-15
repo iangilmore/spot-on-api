@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const answerHistorySchema = new mongoose.Schema({
   correct: { type: Number, required: true, default: 0 },
