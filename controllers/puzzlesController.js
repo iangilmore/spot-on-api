@@ -2,7 +2,7 @@ import Puzzle from '../models/puzzlesModel.js'
 
 export const getPuzzles = async (req, res) => {
   try {
-    const puzzles = await Puzzle.find()
+    const puzzles = await Puzzle.find().populate('puzzleCards')
     res.status(200).json(puzzles)
   } catch (error) {
     res.status(404).json({ message: error.message })
@@ -12,7 +12,7 @@ export const getPuzzles = async (req, res) => {
 export const getPuzzle = async (req, res) => {
   const { puzzleId } = req.params
   try {
-    const puzzle = await Puzzle.find({ _id: puzzleId })
+    const puzzle = await Puzzle.findOne({ _id: puzzleId }).populate('puzzleCards')
     res.status(200).json(puzzle)
   } catch (error) {
     res.status(404).json({ message: error.message })
