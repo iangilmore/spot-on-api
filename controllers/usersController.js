@@ -49,9 +49,8 @@ export const handleCallback = async (req, res) => {
       // sameSite: 'none',
       // sameSite: 'strict',
   })
-  // Redirect the user to the homepage
-  // TODO: Redirect the user to a logged in page
-  res.redirect(process.env.ENDPOINT_FRONTEND)
+  // Redirect the user to the start page
+  res.redirect(process.env.ENDPOINT_FRONTEND + '?logged_in=true')
 }
 
 export const logOut = async (req, res) => {
